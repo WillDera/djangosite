@@ -10,5 +10,10 @@ class Article(models.Model):
     
     # Add thumbnail and author later
     def __str__(self):
+        # display title of article in the database admin section
         return self.title
+    
+    def snippet(self):
+        # make a 50 characters preview on the articles main page for each article
+        return self.body[:50] + '...'
     
