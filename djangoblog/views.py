@@ -14,4 +14,6 @@ def article(request):
     return render(request, 'djangoblog/article.html', {'articles': articles})
 
 def article_detail(request, slug):
-    return HttpResponse(slug)
+    # return HttpResponse(slug)
+    article = Article.objects.get(slug=slug)
+    return render(request, 'djangoblog/article_detail.html', {'article': article})

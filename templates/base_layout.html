@@ -9,8 +9,12 @@
     <title>Articles</title>
 </head>
 <body>
-    <a href="{% url 'djangoblog:article' %}"><img src="{% static '/djangoblog/logo.jpg' %}"/></a>
-    {% block content %}
-    {% endblock %}
+    <header>
+        <h1><a href="{% url 'djangoblog:article' %}"><img src="{% static '/djangoblog/logo.jpg' %}"/></a></h1>
+    </header>
+    <div class="wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>
