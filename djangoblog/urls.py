@@ -6,5 +6,5 @@ app_name = 'djangoblog'
 urlpatterns = [
     path('', views.index, name='index'),
     path('article/', views.article, name='article'),
-    path('article/<int:slug>/', views.article_detail, name='article_detail'),
+    path('article/<slug>/', views.article_detail, name='article_detail'),
 ]
