@@ -7,8 +7,14 @@ class Article(models.Model):
     slug = models.SlugField()
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
+
+    # this adds media handling feature to display a banner for each
+    # article based on database info and 
+    # if no image is provided, a default image would be rendered instead
+    thumb = models.ImageField(default='default.png', blank=True)
+
+    # TODO: Add author later
     
-    # Add thumbnail and author later
     def __str__(self):
         # display title of article in the database admin section
         return self.title
