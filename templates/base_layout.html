@@ -11,6 +11,16 @@
 <body>
     <header>
         <h1><a href="{% url 'djangoblog:article' %}"><img src="{% static '/djangoblog/logo.jpg' %}"/></a></h1>
+        <nav>
+            <ul>
+                <li>
+                    <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
     </header>
     <div class="wrapper">
         {% block content %}
