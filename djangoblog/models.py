@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -14,6 +15,7 @@ class Article(models.Model):
     thumb = models.ImageField(default='default.png', blank=True)
 
     # TODO: Add author later
+    author = models.ForeignKey(User, default=None, on_delete=models.DO_NOTHING)
     
     def __str__(self):
         # display title of article in the database admin section

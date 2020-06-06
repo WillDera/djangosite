@@ -30,6 +30,12 @@ def article_create(request):
         form = forms.CreateArticle(request.POST, request.FILES)
         if form.is_valid():
             # save article to database
+            instance = form.save(commit=False)
+            # getting the details of the user creating 
+            # the article
+            instance.author = request.user
+            instance.save()
+
             return redirect('djangoblog:article')
     else:
         form = forms.CreateArticle()
