@@ -23,7 +23,7 @@
                     <li>
                         <form class="create-link" action="{% url 'djangoblog:create' %}" method="post">
                             {% csrf_token %}
-                            <button type="submit">Create Article</button>
+                            <button class="btn-create" type="submit">Create Article</button>
                         </form>
                     </li>
                 {% else %}
