@@ -13,12 +13,33 @@
         <h1><a href="{% url 'djangoblog:article' %}"><img src="{% static '/djangoblog/logo.jpg' %}"/></a></h1>
         <nav>
             <ul>
-                <li>
-                    <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit">Logout</button>
-                    </form>
-                </li>
+                {% if user.is_authenticated %}
+                    <li>
+                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form class="create-link" action="{% url 'djangoblog:create' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Create Article</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li>
+                        <form class="login-link" action="{% url 'accounts:login' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Log In</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form class="signup-link" action="{% url 'accounts:signup' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Sign Up</button>
+                        </form>
+                    </li>
+                {% endif %}
             </ul>
         </nav>
     </header>
